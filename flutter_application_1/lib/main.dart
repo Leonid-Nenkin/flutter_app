@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
-
+  
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -100,16 +100,19 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // SvgPicture.asset('assets/flutter_logo.svg'),
-            // Image.network('https://www.google.com/url?sa=i&url=https%3A%2F%2Fdocs.flutter.dev%2F&psig=AOvVaw15PQrkCdIEz4dnudtHV2Hf&ust=1679763800309000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCIip-vaF9f0CFQAAAAAdAAAAABAE'),
-            Image.asset('assets/images/flutter_image.png'),
-            const Text(
-              'You have pushed the button this many times:',
+            SvgPicture.asset('assets/images/flutter.svg', height: 100, width: 100),
+            SvgPicture.network('http://upload.wikimedia.org/wikipedia/commons/0/02/SVG_logo.svg',
+              placeholderBuilder: (BuildContext context) => Container(
+              padding: const EdgeInsets.all(30.0),
+              child: const CircularProgressIndicator())
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            // const Text(
+            //   'You have pushed the button this many times:',
+            // ),
+            // Text(
+            //   '$_counter',
+            //   style: Theme.of(context).textTheme.headlineMedium,
+            // ),
             CarouselSlider(
               options: CarouselOptions(height: 400.0),
               items: [1,2,3,4,5].map((i) {
@@ -126,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 );
               }).toList(),
-            )
+            ),
           ],
         ),
       ),
